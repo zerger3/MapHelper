@@ -150,12 +150,6 @@ namespace MapHelper
                         drawRect.Y -= 5;
                         badmaps.Add(drawRect);
                     }
-                    else
-                    {
-                        LogMessage("no danger", 5);
-
-                    }
-
 
                 }
 
