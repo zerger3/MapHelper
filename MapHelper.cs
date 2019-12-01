@@ -100,6 +100,7 @@ namespace MapHelper
             var unidmaps = new List<RectangleF>();
             var goodmaps = new List<RectangleF>(); //not yet
 
+            var badmods = 0;
             foreach (NormalInventoryItem map in mapsiminventar)
             {
 
@@ -120,6 +121,7 @@ namespace MapHelper
 
 
                 var mods = testItem.ItemMods;
+                
 
                 List<ModValue> values =
                     mods.Select(
@@ -134,6 +136,7 @@ namespace MapHelper
                         drawRect.X -= 5;
                         drawRect.Y -= 5;
                         badmaps.Add(drawRect);
+                        badmods++;
                     }
                     else if (mod.Record.Group == "MapPlayerReducedRegen" && Settings.NoRegen)  //no regen/ reduced regen
                     {
@@ -142,6 +145,8 @@ namespace MapHelper
                         drawRect.X -= 5;
                         drawRect.Y -= 5;
                         badmaps.Add(drawRect);
+                        badmods++;
+
                     }
                     else if (mod.Record.Group == "MapMonsterPhysicalReflection" && Settings.PhysReflect)  //phys reflect
                     {
@@ -149,9 +154,22 @@ namespace MapHelper
                         drawRect.X -= 5;
                         drawRect.Y -= 5;
                         badmaps.Add(drawRect);
+                        badmods++;
                     }
+                    
+
 
                 }
+
+                              
+
+            }
+
+            if (badmods == 0)
+            {
+
+                LogMessage("no danger", 5);
+
 
             }
 
