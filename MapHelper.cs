@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -68,8 +68,18 @@ namespace MapHelper
 
             var stashitems = stash.VisibleInventoryItems;
 
-            var allitems = inventoryItems.Concat(stashitems)
-                                    .ToList();
+            IList<NormalInventoryItem> allitems;
+
+            if (stashitems == null)
+            {
+                allitems = inventoryItems;
+            }
+            else
+            {
+
+                allitems = inventoryItems.Concat(stashitems)
+                                        .ToList();
+            }
 
 
             if (allitems == null)
@@ -139,6 +149,11 @@ namespace MapHelper
                         drawRect.X -= 5;
                         drawRect.Y -= 5;
                         badmaps.Add(drawRect);
+                    }
+                    else
+                    {
+                        LogMessage("no danger", 5);
+
                     }
 
 
