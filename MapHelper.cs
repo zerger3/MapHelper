@@ -157,6 +157,15 @@ namespace MapHelper
                         badmods++;
                     }
                     
+                    else if (mod.Record.Group == "MapMonsterPhysicalReflection3MapWorlds" && Settings.PhysReflect)  //zerger testing
+                    {
+                        var drawRect = map.GetClientRect();
+                        drawRect.X -= 5;
+                        drawRect.Y -= 5;
+                        badmaps.Add(drawRect);
+                        badmods++;
+                    }
+                    
 
 
                 }
