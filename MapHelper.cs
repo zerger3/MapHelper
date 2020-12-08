@@ -157,7 +157,7 @@ namespace MapHelper
                         badmods++;
                     }
                     
-                    else if (mod.Record.Group == "MapMonsterPhysicalReflection3MapWorlds" && Settings.PhysReflect)  //zerger testing
+                    else if (mod.Record.Group == "MapGroundEffect" && Settings.PhysReflect)  //zerger testing
                     {
                         var drawRect = map.GetClientRect();
                         drawRect.X -= 5;
